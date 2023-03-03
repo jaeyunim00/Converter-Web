@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    const Time_Converter = () => {
+      const [amount, setAmount] = React.useState();
+      const [flip, changeFlip] = React.useState(true);
+
+      const handleReset = () => {
+        setAmount(0);
+      };
+
+      const handleFlip = () => {
+        handleReset();
+        changeFlip((item) => !item);
+      };
+
+      const handleChange = (event) => {
+        setAmount(event.target.value);
+      };
+      return (
+        <div class="time">
+          <div class="time_minute">
+            <label htmlFor="minutes">Minutes: </label>
+            <input
+              id="minutes"
+              type="number"
+              value={flip ? amount : amount * 60}
+              onChange={handleChange}
+              disabled={!flip}
+            />
+          </div>
+          <div class="time_hour">
+            <label htmlFor="hour">Hour: </label>
+            <input
+              id="hour"
+              type="number"
+              value={flip ? amount / 60 : amount}
+              onChange={handleChange}
+              disabled={flip}
+            />
+          </div>
+          <div class="btns">
+            <button class="btns_reset" onClick={handleChange}>
+              RESET
+            </button>
+            <button class="btns_flip" onClick={handleFlip}>
+              FLIP
+            </button>
+          </div>
+        </div>
+      );
+    };
+    const Container = () => {
+      return (
+        <div>
+          <h1>⏱ Yun Converter</h1>
+          <Time_Converter />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>
