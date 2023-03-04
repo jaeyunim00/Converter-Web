@@ -1,0 +1,90 @@
+@import url(snow.css);
+@import url(reset.css);
+
+/* VAR */
+:root {
+  --main-box-height: 35px;
+  --main-dark-color: #50586c;
+  --main-bright-color: #dce2f0;
+  /* --main-white-color: #edf2f4; */
+}
+
+/* GLOBAL STYLE (BODY INPUT BTN)*/
+body {
+  height: 100vh;
+  color: #50586c;
+  background-color: var(--main-bright-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 4px;
+}
+
+select {
+  padding: 0px 10px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--main-dark-color);
+  height: var(--main-box-height);
+}
+
+input[type="number"] {
+  padding: 0px 10px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--main-bright-color);
+  height: var(--main-box-height);
+  transition: 0.3s ease-in-out;
+}
+
+input[type="number"]:focus {
+  border-bottom: 2px solid var(--main-dark-color);
+}
+
+.btn {
+  color: var(--main-bright-color);
+  width: 100px;
+  height: var(--main-box-height);
+  background-color: var(--main-dark-color);
+  border: none;
+}
+
+.btn:first-child {
+  margin-right: 3px;
+}
+
+/* MAIN_CONTAINER */
+.root_container {
+  box-sizing: border-box;
+  width: 500px;
+  height: 500px;
+  background-color: var(--main-bright-color);
+  /* background-color: aquamarine; */
+  padding: 100px;
+}
+
+.root_container div {
+  margin: 10px 0;
+}
+
+.root_container .header {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+.root_container .header span:first-child {
+  font-size: 30px;
+}
+
+/* ITEM(MIN HOUR M KM) */
+.item_first {
+  display: flex;
+  flex-direction: column;
+}
+
+.item_second {
+  display: flex;
+  flex-direction: column;
+}
