@@ -57,11 +57,26 @@
         </div>
       );
     };
+    const Distance_Converter = () => {
+      return <h1>distancepage</h1>;
+    };
+
     const Container = () => {
+      const [selected, handleSelected] = React.useState(0);
+
+      const handleChange = (event) => {
+        handleSelected(event.target.value);
+      };
+
       return (
         <div>
           <h1>⏱ Yun Converter</h1>
-          <Time_Converter />
+          <select onChange={handleChange}>
+            <option value="0">Minutes - Hour</option>
+            <option value="1">Meter - Kilometer</option>
+          </select>
+          {selected == 0 ? <Time_Converter /> : null}
+          {selected == 1 ? <Distance_Converter /> : null}
         </div>
       );
     };
